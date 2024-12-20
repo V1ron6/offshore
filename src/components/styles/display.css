@@ -1,0 +1,89 @@
+#seq{
+	background:  url(/src/components/project/airpod1.jpg) ;
+	height:400px;
+	background-repeat: no-repeat;
+	background-size:contain ;
+	background-position: center;
+	border-radius: 20% 150% 40% 50%;
+animation: slip 5s infinite;
+}
+@keyframes slip {
+	25%{
+		background:  url(/src/components/project/iwatch.jpg) ;
+	height:400px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	border-radius: 20% 150% 40% 50%;
+	}
+	50%{
+		background:  url(/src/components/project/headset.jpg) ;
+	height:400px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	border-radius: 20% 150% 40% 50%;
+	}
+	75%{
+		background:  url(/src/components/project/vr2.jpg) ;
+	height:400px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	border-radius: 20% 150% 40% 50%;
+	}
+	100%{
+		background:  url(/src/components/project/airpod1.jpg) ;
+	height:400px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	border-radius: 20% 150% 40% 50%;
+
+	}
+}
+.brshct{
+display: flex;
+justify-content: space-between;
+z-index: 300;
+font-size: large;
+}
+
+
+#gloto{
+	font-size: small;
+ color: rgb(177, 117, 117);
+}
+
+#viron{
+	width: 300px;
+position: relative;
+top: 350px;
+display:flex; 
+justify-content: space-between;
+}
+
+
+#imgs{
+border: 0.01cm solid grey;
+border-radius: 20px;
+filter: brightness(60%);
+
+}
+
+#imgs:active{
+	border: 0.01cm solid grey;
+	border-radius: 20px;
+	filter: brightness(100%);
+	border:0.01cm solid rgb(177, 117, 117) ;
+	box-shadow: 1px 2px 3px rgb(177, 117, 117)  ;
+	
+	}
+
+#net{
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 23px;
+	align-items: center;
+	width: 50px;
+}

@@ -1,0 +1,39 @@
+.txt{
+	text-transform: capitalize;
+	color: rgb(235, 156, 156);
+}
+h1{
+	color:black;
+	font-size: 60px;
+	 span{
+		color:rgb(235, 156, 156);
+	 }
+}
+
+#sem{
+	color:black;
+	font-size: small;
+}
+button{
+	padding:8px 4px 6px;
+	display:flex;
+	align-items: center;
+	border-radius: 25px;
+	width:100px; 
+	outline: none;
+	background: rgb(235, 156, 156);
+	color: whitesmoke;
+	justify-content: space-between;
+	text-transform: capitalize;
+	margin: 8px 10px;
+	font-size:0.5rem;
+	border:0.01cm solid white;
+}
+#hand{
+	color:red;
+	background: white;
+	border-radius: 50px;
+}
+@media (max-width:414px ){
+	
+}

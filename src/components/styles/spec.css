@@ -1,0 +1,24 @@
+#gg{
+	font-size: 2.5rem;
+}
+
+input{
+	width: 60%;
+	height: 30px;
+	border:0.01cm solid rgb(238, 233, 233);
+	border-radius: 50px;
+	padding: 10px;
+}
+
+
+.black{
+	padding: 20px;
+	background-color: rgb(94, 77, 77);
+height: 200px;
+p{
+	color:white;
+}
+img{
+	margin:10px;
+}
+}

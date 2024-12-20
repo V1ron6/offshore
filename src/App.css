@@ -1,0 +1,14 @@
+body{
+	background: white;
+	margin: 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 10px;
+	display: flex;
+}
+a{
+	text-decoration: none;
+	color: aqua;
+}
+
+

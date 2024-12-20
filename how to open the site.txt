@@ -1,0 +1,12 @@
+open cmd as administrator
+
+
+enter these few codes;
+
+1.  cd  C:\Users\HP\Desktop\work\mhv
+to access directory 
+2. enter "npm start"
+
+3. wait for it to load
+
+ 
