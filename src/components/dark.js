@@ -1,89 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/dark.css';
 
+const Mobile = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-import img1 from './phone1.jpg';
-import img2 from './project/s22ultra.jpg';
-import img3 from './project/s43.jpg';
-import img4 from './project/iphone2.jpg';
-import img5 from './project/pixel.jpg';
+  useEffect(() => {
+    async function fetchPhones() {
+      try {
+        const response = await fetch('https://dummyjson.com/products/search?q=phone');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setProducts(data.products);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    }
 
+    fetchPhones();
+  }, []);
 
+  if (loading) {
+    return <p>Loading phone data...</p>;
+  }
 
-const mobile=()=>{
-	return(
-<>
-<p id="lie">our <span>popular</span> products</p>
-<p id="lie2">experience a top-notch quality and satisfaction with our sought after selections.
-discover a world of comfort and value</p>
-<p id='lie'>mobile devices</p>
-<div className="child">
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
-	<div className='phones'>
-	<center>
-		<img src={img1}  id="phone"></img>
-		</center>
-		<p id="star-rating">
-			<span id="gt">&#9733; </span>
-			<span id="gt1">4.5</span>
-		</p>
-		<p id="lo">infinix smart 8  <span id="price">$200.00</span> </p>
-	</div>
+  const handleBuyClick = (product) => {
+    alert(`Added "${product.title}" to your cart! (Price: $${product.price})`);
+    console.log('Buy button clicked for:', product);
+    // In a real application, you would implement actual cart logic here
+  };
 
-	<div className='phones'>
-	<center>
-		<img src={img2}  id="phone"></img>
-		</center>
-		<p id="star-rating">
-			<span id="gt">&#9733; </span>
-			<span id="gt1">5.0</span>
-		</p>
-		<p id="lo">samsung s24 ultra  <span id="price">$700.00</span> </p>
-	</div>
-	<div className='phones'>
-	<center>
-		<img src={img3}  id="phone"></img>
-		</center>
-		<p id="star-rating">
-			<span id="gt">&#9733; </span>
-			<span id="gt1">4.5</span>
-		</p>
-		<p id="lo"> motorola <span id="price">$600.00</span> </p>
-	</div>
-	<div className='phones'>
-	<center>
-		<img src={img5}  id="phone"></img>
-		</center>
-		<p id="star-rating">
-			<span id="gt">&#9733; </span>
-			<span id="gt1">5.0</span>
-		</p>
-		<p id="lo">google pixel  <span id="price">$600.00</span> </p>
-	</div>
-	<div className='phones'>
-	<center>
-		<img src={img4}  id="phone"></img>
-		</center>
-		<p id="star-rating">
-			<span id="gt">&#9733; </span>
-			<span id="gt1">4.5</span>
-		</p>
-		<p id="lo">iphone 15 pro max  <span id="price">$900.00</span> </p>
-	</div>
-	<div className='phones'>
-	<center>
-		<p id="str">
-		<a href="#">more</a>
-		</p>
-	
-		</center>
-		
-	</div>
-	</div>
-	
-</>
-
-
-	);
+  return (
+    <>
+      <p id="lie">our <span>popular</span> products</p>
+      <p id="lie2">experience a top-notch quality and satisfaction with our sought after selections.
+        discover a world of comfort and value</p>
+      <p id='lie'>mobile devices</p>
+      <div className="child">
+        {products.map((product) => (
+          <div className='phones' key={product.id}>
+            <center>
+              <img src={product.thumbnail} id="phone" alt={product.title} />
+            </center>
+            <p id="star-rating">
+              <span id="gt">&#9733; </span>
+              <span id="gt1">{product.rating}</span>
+            </p>
+            <p id="lo">{product.title} <span id="price">${product.price}.00</span> </p>
+            <button className="buy-button" onClick={() => handleBuyClick(product)}>Buy Now</button>
+          </div>
+        ))}
+        <div className='phones'>
+          <center>
+            <p id="str">
+              <a href="#">more</a>
+            </p>
+          </center>
+        </div>
+      </div>
+    </>
+  );
 }
-export default mobile;
+
+export default Mobile;

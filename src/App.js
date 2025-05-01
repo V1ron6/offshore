@@ -3,6 +3,8 @@ import './App.css';
 import Top from "./components/top.js";
 import Fxtx from "./components/firsttxt.js";
 import Mobile from "./components/dark.js";
+import Laptop from "./components/laptop.jsx";
+import All from "./components/other.jsx";
 import Display from "./components/dispaly.js";
 import Access from "./components/theRest.jsx";
 import Bigger  from "./components/bigger.jsx";
@@ -13,7 +15,9 @@ const App = () =>{
 			<Top />
 			<Fxtx />
 			<Display />
-      <Mobile />
+            <Mobile />
+	        <Laptop />
+			<All />
 			<Access />
 			<Bigger />
 			<Spec />
