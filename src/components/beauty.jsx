@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles/dark.css';
 
-const All= () => {
+const Beauty= () => {
   const [allItems, setAllItems] = useState([]);
   const [nonLaptops, setNonLaptops] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,7 +10,7 @@ const All= () => {
   useEffect(() => {
     async function fetchAllProducts() {
       try {
-        const response = await fetch('https://dummyjson.com/products?limit=0&skip=0');
+        const response = await fetch("https://dummyjson.com/products/category/beauty");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -42,13 +42,12 @@ const All= () => {
   }
 
   const handleBuyClick = (item) => {
-    alert(`Added "${item.title}" to your cart! (Price: $${item.price})`);
     console.log('Buy button clicked for:', item);
   };
 
   return (
     <>
-      <p id='lie'>Other Items</p>
+      <p id='lie'>beauty</p>
       <div className="child">
         {nonLaptops.map((item) => (
           <div className='laptop-item' key={item.id}>
@@ -80,4 +79,4 @@ const All= () => {
   );
 }
 
-export default All;
+export default Beauty;
